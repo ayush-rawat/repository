@@ -1,0 +1,53 @@
+Develop a Python/Django application that will display the Nth number in Fibonacci sequence.
+For instance, if N is 6 and the sequence starts with [1,1..] then it should display ‘8’ as the 6th element in the sequence.
+*************************************************
+from timeit import default_timer as timer
+def fibonacci(n):
+    global fibonacci_list
+    if n<=0:
+        return 0
+    elif n<=len(fibonacci_list):
+        return fibonacci_list[n-1]
+    else:
+        fibonacci_list.append(fibonacci(n-1)+fibonacci(n-2))
+        return fibonacci_list[n-1]
+
+fibonacci_list=[1,1]
+while 1:
+    try:
+        n=int(input("Enter a position to get a corresponding number in a fibonacci sequence "))
+    except ValueError: #to avoid inputs like characters,decimal number
+        print("Please enter a positive integer")
+        continue
+    start=timer()
+    output=fibonacci(n)
+    if output!=0: #to accept only positive integer
+        print("Fibonacci number at position ",n," is : ",output)
+        end=timer()
+        print("Time taken to get the result to the user : ","{0:.6f}".format(end-start)," seconds")
+    else: #to avoid negative integer
+        print("Please enter a positive integer")
+        continue
+    a=input("Press 'y' to Try again and any other key to exit ")
+    if a=='y':
+        continue
+    else:
+        print("Program terminated")
+        break
+**************************************************
+TEST CASES:
+Enter a position to get a corresponding number in a fibonacci sequence 6
+Fibonacci number at position  6  is :  8
+Time taken to get the result to the user :  0.000103  seconds
+Press 'y' to Try again and any other key to exit y
+Enter a position to get a corresponding number in a fibonacci sequence -6    #doesnt accept negative integer
+Please enter a positive integer
+Enter a position to get a corresponding number in a fibonacci sequence 6.3   #doesnt accept decimal number
+Please enter a positive integer
+Enter a position to get a corresponding number in a fibonacci sequence ayush  #doesnt accept characters
+Please enter a positive integer
+Enter a position to get a corresponding number in a fibonacci sequence 56    #doesnt take too much time for large input(dynamic programming)
+Fibonacci number at position  56  is :  225851433717
+Time taken to get the result to the user :  0.000210  seconds
+Press 'y' to Try again and any other key to exit exit
+Program terminated
