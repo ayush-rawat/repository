@@ -1,6 +1,3 @@
-Develop a Python/Django application that will display the Nth number in Fibonacci sequence.
-For instance, if N is 6 and the sequence starts with [1,1..] then it should display ‘8’ as the 6th element in the sequence.
-*************************************************
 from timeit import default_timer as timer
 def fibonacci(n):
     global fibonacci_list
@@ -34,20 +31,3 @@ while 1:
     else:
         print("Program terminated")
         break
-**************************************************
-TEST CASES:
-Enter a position to get a corresponding number in a fibonacci sequence 6
-Fibonacci number at position  6  is :  8
-Time taken to get the result to the user :  0.000103  seconds
-Press 'y' to Try again and any other key to exit y
-Enter a position to get a corresponding number in a fibonacci sequence -6    #doesnt accept negative integer
-Please enter a positive integer
-Enter a position to get a corresponding number in a fibonacci sequence 6.3   #doesnt accept decimal number
-Please enter a positive integer
-Enter a position to get a corresponding number in a fibonacci sequence ayush  #doesnt accept characters
-Please enter a positive integer
-Enter a position to get a corresponding number in a fibonacci sequence 56    #doesnt take too much time for large input(dynamic programming)
-Fibonacci number at position  56  is :  225851433717
-Time taken to get the result to the user :  0.000210  seconds
-Press 'y' to Try again and any other key to exit exit
-Program terminated
